@@ -1,20 +1,28 @@
 import React from 'react'
 import { user } from './testUsers'
+import { useVideoContext } from './_context/videoContext'
+
 
 type Props = {
   users: user[]
 }
 
 export const VideoColumn: React.FC<Props> = ({ users }) => {
+
   // flatMap for typescript here
+  const {setVideoPlayer} = useVideoContext()
+
+  
   const userVideosJSX = users.flatMap((userInfo) =>
     userInfo.userVideos.map((userVideo) => (
       <div
-        key={userVideo.id}
+        key={userVideo.testkey}
         className="flex border-2 border-[#d8cbcb] w-full h-full bg-[#d8cbcb] text-center justify-center items-center"
       >
-        <button>
-          <video className="h-full" key={userVideo.id}>
+        <button onClick={() =>{
+          setVideoPlayer(userVideo.video_file)
+        }}>
+          <video key={userVideo.testkey} className="h-full" >
             <source src={userVideo.video_file} type="video/mp4" />
           </video>
         </button>
