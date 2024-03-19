@@ -16,7 +16,9 @@
   }
 }
 
-
+body{
+  height: 100dvh;
+}
 
 @layer utilities {
   .text-balance {
