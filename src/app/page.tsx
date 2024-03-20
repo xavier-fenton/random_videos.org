@@ -3,18 +3,35 @@ import '../app/globals.css'
 import Header from './header'
 import { VideoPlayer } from './videoPlayer'
 import { VideoColumn } from './videosColumn'
-import { TestUsers as users } from './testUsers'
+import { user, TestUsers as users } from './testUsers'
 import { VideoPlayerProvider } from './_context/videoContext'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
+ const [userVideos, setUserVideos] = useState()
+
+ 
+ useEffect(() => {
+  fetch('/api/users').then((res) => 
+    res.json()
+  ).then((data: any) => {
+    const userVids = data.map((users: any) => {
+      return users.userVideos
+    })
+    
+    setUserVideos(userVids)
+    
+  });
+ }, [])
+ 
   return (
     <>
       <VideoPlayerProvider>
         <Header />
-        {users ? (
+        {userVideos ? (
           <>
             <div className="flex flex-col w-full md:flex-row">
-              <VideoColumn users={users} />
+              <VideoColumn usersVideoCollection={userVideos} />
               <VideoPlayer />
             </div>
           </>

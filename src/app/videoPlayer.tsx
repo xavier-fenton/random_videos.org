@@ -4,7 +4,8 @@ import { useVideoContext } from './_context/videoContext'
 
 export function VideoPlayer() {
   const {currentVideo, loader} = useVideoContext()
-
+  console.log(currentVideo);
+  
   
  
   
