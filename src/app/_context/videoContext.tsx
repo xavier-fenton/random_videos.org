@@ -13,6 +13,8 @@ type VideoPlayerContext = {
   setVideoPlayer: (arg: any) => void
   currentVideo: any
   setCurrentVideo: any
+  loader: boolean
+  setLoader: (arg: boolean) => void
 }
 
 const VideoPlayerContext = createContext({} as VideoPlayerContext)
@@ -33,7 +35,7 @@ const getUserVideos= TestUsers.flatMap((user_info) => {
 
 
 export function VideoPlayerProvider({ children }: videoContextProviderProps) {
-
+  const [loader, setLoader] = useState(false)
   const [currentVideo, setCurrentVideo] = useState('/2024-01-30 16-08-03.mp4')
   
 
@@ -44,7 +46,7 @@ export function VideoPlayerProvider({ children }: videoContextProviderProps) {
 
   return (
     <VideoPlayerContext.Provider
-      value={{setVideoPlayer, currentVideo, setCurrentVideo}}
+      value={{setVideoPlayer, currentVideo, setCurrentVideo, setLoader, loader}}
     >
       {children}
     </VideoPlayerContext.Provider>

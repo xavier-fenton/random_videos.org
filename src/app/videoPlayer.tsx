@@ -3,7 +3,7 @@ import { useVideoContext } from './_context/videoContext'
 
 
 export function VideoPlayer() {
-  const {currentVideo} = useVideoContext()
+  const {currentVideo, loader} = useVideoContext()
 
   
  
@@ -16,7 +16,10 @@ export function VideoPlayer() {
       </div>
 
       <div className="flex items-center justify-center w-full h-fit">
-      <video id='video_test'autoPlay controls src={currentVideo} />
+        { loader ? <div className='loader'>Loading please wait...</div> : <video id='video_test'autoPlay controls src={currentVideo} />
+        
+      }
+      
       </div>
       <div className="text-center underline">
         213123_00 Title Example 1 DESCRIPTION HERE
