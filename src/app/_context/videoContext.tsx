@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useState } from "react"
+import { createContext, ReactNode, useContext, useEffect, useState } from "react"
 import {TestUsers } from "../testUsers"
 
 type videoContextProviderProps = {
@@ -12,9 +12,12 @@ type videoInfo = {
 type VideoPlayerContext = {
   setVideoPlayer: (arg: any) => void
   currentVideo: any
-  setCurrentVideo: any
+  setCurrentVideo: (arg: string[]) => void
   loader: boolean
   setLoader: (arg: boolean) => void
+  userVideos: any
+  loader2: boolean
+  setLoader2: (arg: boolean) => void
 }
 
 const VideoPlayerContext = createContext({} as VideoPlayerContext)
@@ -33,20 +36,39 @@ const getUserVideos= TestUsers.flatMap((user_info) => {
 
 
 
-
 export function VideoPlayerProvider({ children }: videoContextProviderProps) {
-  const [loader, setLoader] = useState(false)
-  const [currentVideo, setCurrentVideo] = useState('/2024-01-30 16-08-03.mp4')
-  
+  const [loader, setLoader] = useState(true)
+  const [loader2, setLoader2] = useState(true)
 
- function setVideoPlayer(arg: string){
-  setCurrentVideo(arg)
+  const [currentVideo, setCurrentVideo] = useState<string[]>([])
+  const [userVideos, setUserVideos] = useState()
+
+  
+ 
+ 
+ useEffect(() => {
+  fetch('/api/users').then((res) => 
+    res.json()
+  ).then((data: any) => {
+    const userVids = data.map((users: any) => {
+      return users.userVideos
+    })
+    
+    setUserVideos(userVids)
+    
+  });
+ }, [])
+
+
+ function setVideoPlayer(arg: any){
+  
+  setCurrentVideo([arg])
   
  }
 
   return (
     <VideoPlayerContext.Provider
-      value={{setVideoPlayer, currentVideo, setCurrentVideo, setLoader, loader}}
+      value={{setVideoPlayer, currentVideo, setCurrentVideo, setLoader, loader, userVideos, loader2, setLoader2}}
     >
       {children}
     </VideoPlayerContext.Provider>
