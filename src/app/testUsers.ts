@@ -51,7 +51,7 @@ export const TestUsers: users = [
     },
     {
       id: 3,
-      username: 'admin_user2',
+      username: 'admin_user3',
       isUser: true,
       userVideos: [
         {
