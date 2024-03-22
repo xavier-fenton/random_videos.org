@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import { useVideoContext } from './_context/videoContext'
-import '../app/globals.css'
 import { VideoPlayer } from './videoPlayer'
 import Uploadvideo from './uploadvideo'
-import { TestUsers as userVideos } from './testUsers'
+import { TestUsers as userVideos } from '../testUsers'
 import { VideoColumn } from './videosColumn'
 
 type Props = {

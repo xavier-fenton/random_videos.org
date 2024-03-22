@@ -1,5 +1,5 @@
 import React, { use, useEffect, useState } from 'react'
-import { useVideoContext } from './_context/videoContext'
+import { useVideoContext } from '../_context/videoContext'
 
 export function VideoPlayer() {
   const { currentVideo, loader2 } = useVideoContext()

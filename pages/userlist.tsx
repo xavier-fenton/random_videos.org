@@ -1,5 +1,6 @@
 // Example of linking to a user page
 import '../src/app/globals.css'
+import '../src/app/globals.css'
 
 
 import Link from 'next/link';
