@@ -1,22 +1,13 @@
-'use client'
-import '../app/globals.css'
-import Header from './_components/header'
-import { VideoPlayerProvider } from './_context/videoContext'
-import HomePage from './_components/homePage'
+// app/page.tsx
+'use client';
 
-import TestUserFirebase from './testuserfirebase'
-import { FireBaseAuthProvider } from './_providers/FireBaseAuthProvider'
+import RootLayout from '@component/RootLayout';
+import HomePage from './_components/homePage';
 
 export default function Home() {
   return (
-    <>
-      <FireBaseAuthProvider>
-        <VideoPlayerProvider>
-          <TestUserFirebase />
-          <Header />
-          <HomePage />
-        </VideoPlayerProvider>
-      </FireBaseAuthProvider>
-    </>
-  )
+    <RootLayout>
+      <HomePage />
+    </RootLayout>
+  );
 }
