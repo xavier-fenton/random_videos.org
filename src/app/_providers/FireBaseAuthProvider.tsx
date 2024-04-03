@@ -1,14 +1,12 @@
+import firebase from 'firebase/compat/app'
 import { auth } from '@component/firebase/firebase'
-import { createContext, useContext, ReactNode, useState } from 'react'
-import { useAuthState } from '../_hooks/useAuthState'
+import { createContext, useContext, ReactNode, useState, useEffect } from 'react'
 type FireBaseAuthProviderProps = {
   children: ReactNode
 }
 
-type FireAuthContext = {
-  user: {
-    email: string
-  }
+export type FireAuthContext = {
+  user: firebase.User | null
 }
 
 const FireAuthContext = createContext({} as FireAuthContext)
@@ -18,12 +16,21 @@ export function useFireBaseAuth() {
 }
 
 export function FireBaseAuthProvider({ children }: FireBaseAuthProviderProps) {
-  const user: any = useAuthState()
+  const [user, setUser] = useState<firebase.User | null>(null);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged( (firebaseUser:any) => {
+      setUser(firebaseUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
 
 
   
   
   return (
-    <FireAuthContext.Provider value={{user}}>{children}</FireAuthContext.Provider>
+    <FireAuthContext.Provider value={{ user }}>{children}</FireAuthContext.Provider>
   )
 }
