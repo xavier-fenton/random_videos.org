@@ -1,18 +1,22 @@
-"use client"
+'use client'
 import '../app/globals.css'
 import Header from './_components/header'
 import { VideoPlayerProvider } from './_context/videoContext'
 import HomePage from './_components/homePage'
 
-export default function Home() {
+import TestUserFirebase from './testuserfirebase'
+import { FireBaseAuthProvider } from './_providers/FireBaseAuthProvider'
 
- return (
-   <>
-      <VideoPlayerProvider>
-        <Header />
-        <HomePage />
-        
-      </VideoPlayerProvider>
+export default function Home() {
+  return (
+    <>
+      <FireBaseAuthProvider>
+        <VideoPlayerProvider>
+          <TestUserFirebase />
+          <Header />
+          <HomePage />
+        </VideoPlayerProvider>
+      </FireBaseAuthProvider>
     </>
   )
 }
