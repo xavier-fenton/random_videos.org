@@ -63,13 +63,13 @@ export const VideoColumn: React.FC<Props> = ({
                 )
               })
             ) : (
-              <div className="loader">Loading</div>
+              <div className="loader text-center">Loading</div>
             )}
           </div>
         </div>
       ) : (
-        <div className="flex flex-col gap-3 border w-full md:w-[50%] md:border-r-black h-[100dvh] p-5">
-          <div className="text-center">random_videos</div>
+        <div className="flex flex-col gap-3 border w-full md:border-r-black h-[100dvh] p-5">
+          <div className="text-center">all your random_videos</div>
           <div className="grid grid-cols-2 gap-4">
             {userVideosJSX ? (
               userVideosJSX
