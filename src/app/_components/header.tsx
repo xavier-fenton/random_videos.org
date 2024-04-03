@@ -10,7 +10,7 @@ export default function Header(){
   
   const router = useRouter()
   const handleClick = () => {
-    router.push(`/profile/${user.email}`)
+    router.push(`/profile/${user?.email}`)
   }
  
   return (
