@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import { firestore } from '@component/firebase/firebase'
 import { collection, addDoc, getDocs } from 'firebase/firestore'
+import AuthLayout from '../../layouts/AuthLayout'
+import TestUserFirebase from '@component/app/testuserfirebase'
+
+import { storage, auth } from '@component/firebase/firebase'
 
 async function addUserData() {
   try {
@@ -15,10 +19,8 @@ async function addUserData() {
   }
 }
 
-
-
-const Index = () => {
-  const [data, setData] = useState()
+//  const [data, setData] = useState()
+  
   async function readUserData() {
   const querySnapshot = await getDocs(collection(firestore, 'users'))
   querySnapshot.forEach((doc) => {
@@ -38,20 +40,29 @@ const Index = () => {
         </div>
       )
     })
-    setData(data)
+    // setData(data)
 
     console.log(`${doc.id} => ${doc.data()}`)
     return <div>{doc.id} {data}</div>
   })
-}
+
+  }
+
+  // const user = auth.currentUser
+
+  
+
+
+
+
+
+
+const Index = () => {
+ 
   return (
-    <div>
-      <button onClick={addUserData}>
-        this button will add test data to db
-      </button>
-      <button onClick={readUserData}>read the data from firestore </button>
-      <div>{data ? data : null}</div>
-    </div>
+    <AuthLayout>
+        <TestUserFirebase />
+    </AuthLayout>
   )
 }
 
