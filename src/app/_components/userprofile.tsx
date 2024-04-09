@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { VideoPlayer } from './videoPlayer'
-import Uploadvideo from './uploadvideo'
+import Uploadvideo from './_subcomponents/userProfileComponents/uploadvideo'
 import { VideoColumn } from './videosColumn'
-import {
-  useFireBaseAuth,
-} from '../_providers/FireBaseAuthProvider'
-import UserProfileHeader from './_subcomponents/userProfileHeader'
+import { useFireBaseAuth } from '../../lib/_providers/FireBaseAuthProvider'
+import UserProfileHeader from './_subcomponents/userProfileComponents/userProfileHeader'
 import { useRouter } from 'next/router'
+import UserVideoColumn from './_subcomponents/userProfileComponents/userVideoColumn'
 
 export const UserProfile = () => {
   const [state, setState] = useState('user archive:')
@@ -25,12 +24,17 @@ export const UserProfile = () => {
 
   return (
     <>
-      { user?.email === username ? 
+      {user?.email === username ? (
         <div className="pt-4 flex flex-col">
           <div className="flex">
-            <div className='gap-4'>
-            <button className="text-[#eee] text-sm bg-gray-400 rounded-r-2xl px-2" onClick={handleBackButton}>back to explorer</button>
-            <UserProfileHeader user={user}/>
+            <div className="flex flex-row gap-4">
+              <button
+                className="text-[#eee] text-sm bg-gray-400 rounded-r-2xl px-2"
+                onClick={handleBackButton}
+              >
+                back to explorer
+              </button>
+              <UserProfileHeader user={user} />
             </div>
             <div
               onClick={handleButtonClicked}
@@ -49,15 +53,17 @@ export const UserProfile = () => {
           </div>
           <div className="flex flex-col w-[100%] h-[100dvh]">
             {state === 'user archive:' ? (
-            <VideoColumn />
-          ) : state === 'user upload' ? (
-            <Uploadvideo />
-          ) : (
-            <VideoPlayer />
-          )}
+              <UserVideoColumn />
+            ) : state === 'user upload' ? (
+              <Uploadvideo />
+            ) : (
+              <VideoPlayer />
+            )}
           </div>
         </div>
-      : <div>Wrong place go back</div>}
+      ) : (
+        <div>Wrong place go back</div>
+      )}
     </>
   )
 }
