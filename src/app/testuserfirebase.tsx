@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { useFireBaseAuth } from './_providers/FireBaseAuthProvider'
-import { handleUpload } from './_helpers/uploadFilesFirebase'
+import { useFireBaseAuth } from '../lib/_providers/FireBaseAuthProvider'
+import { handleUpload } from '../lib/_helpers/uploadFilesFirebase'
 import firebase from 'firebase/compat/app'
 import { filesize } from 'filesize'
 
