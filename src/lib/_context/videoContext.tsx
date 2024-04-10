@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react"
-import {TestUsers } from "../testUsers"
+import { TestUsers } from "@component/app/testUsers"
 
 type videoContextProviderProps = {
   children: ReactNode
@@ -27,11 +27,7 @@ export function useVideoContext() {
 }
 
 
-const getUserVideos= TestUsers.flatMap((user_info) => {
-  return user_info.userVideos.map((video_info) => {    
-    return video_info.video_file
-  })
-})
+
 
 
 
@@ -59,7 +55,7 @@ export function VideoPlayerProvider({ children }: videoContextProviderProps) {
   });
  }, [])
 
-
+ 
  function setVideoPlayer(arg: any){
   
   setCurrentVideo([arg])

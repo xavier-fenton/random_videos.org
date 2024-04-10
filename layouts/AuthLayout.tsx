@@ -1,4 +1,4 @@
-import { FireBaseAuthProvider } from "@component/app/_providers/FireBaseAuthProvider";
+import { FireBaseAuthProvider } from "@component/lib/_providers/FireBaseAuthProvider";
 import React from "react";
 
 interface AuthLayoutProps {

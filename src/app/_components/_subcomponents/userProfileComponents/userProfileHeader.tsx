@@ -3,7 +3,7 @@ import { auth } from '@component/firebase/firebase'
 import { signOut } from 'firebase/auth'
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import { FireAuthContext } from '@component/app/_providers/FireBaseAuthProvider'
+import { FireAuthContext } from '@component/lib/_providers/FireBaseAuthProvider'
 
 const UserProfileHeader = ({user}: FireAuthContext) => {
   const router = useRouter()

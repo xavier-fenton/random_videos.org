@@ -1,8 +1,10 @@
-import React from 'react'
-import { useFireBaseAuth } from '../_providers/FireBaseAuthProvider'
-import { useRouter } from 'next/navigation'
-import SignInButton from './_subcomponents/signInButton'
-import SignUpButton from './_subcomponents/signUpButton'
+import React from 'react';
+import { useFireBaseAuth } from '../../lib/_providers/FireBaseAuthProvider';
+import { useRouter } from 'next/navigation';
+import SignInButton from './_subcomponents/signInButton';
+import SignUpButton from './_subcomponents/signUpButton';
+
+export default function Header(){
 
 export default function Header() {
   const { user } = useFireBaseAuth()

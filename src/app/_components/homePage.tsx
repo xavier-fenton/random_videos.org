@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useVideoContext } from '../_context/videoContext'
+import { useVideoContext } from '../../lib/_context/videoContext'
 import { VideoColumn } from './videosColumn'
 import { VideoPlayer } from './videoPlayer'
 import NotUser from './notUser'
