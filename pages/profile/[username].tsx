@@ -8,11 +8,9 @@ const UserPage = () => {
   return (
     <>
       <AuthLayout>
-          <VideoPlayerProvider>
-           
-            <UserProfile />
-          </VideoPlayerProvider>
-        
+        <VideoPlayerProvider>
+          <UserProfile />
+        </VideoPlayerProvider>
       </AuthLayout>
     </>
   )

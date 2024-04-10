@@ -1,5 +1,4 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react"
-import { TestUsers } from "@component/app/testUsers"
 
 type videoContextProviderProps = {
   children: ReactNode

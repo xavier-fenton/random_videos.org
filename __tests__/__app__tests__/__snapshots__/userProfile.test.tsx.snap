@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserProfile snapshot matches snapshot 1`] = `
+<div>
+  <div
+    class="pt-4 flex flex-col"
+  >
+    <div
+      class="flex"
+    >
+      <div
+        class="flex flex-row gap-4"
+      >
+        <button
+          class="text-[#eee] text-sm bg-gray-400 rounded-r-2xl px-2"
+        >
+          back to explorer
+        </button>
+        <div
+          class="flex text-sm px-4 items-center gap-4"
+        >
+          <div
+            class="text-xs"
+          >
+            hello
+          </div>
+          <div
+            class="text-2xl"
+          />
+          <button>
+            sign out
+          </button>
+        </div>
+      </div>
+      <div
+        class="flex justify-center items-center cursor-pointer w-fit  bg-[#dedede] rounded-t-lg px-2 text-xs py-[2px]"
+        id="user_archive"
+      >
+        user archive:
+      </div>
+      <div
+        class="flex justify-center items-center cursor-pointer w-fit bg-[#f1f1f1] rounded-t-lg px-2 text-xs py-[2px]"
+        id="user_upload"
+      >
+        user upload
+      </div>
+    </div>
+    <div
+      class="flex flex-col w-[100%] h-[100dvh]"
+    >
+      <div
+        class="flex flex-col gap-5 border border-x-0 w-full h-[100dvh] p-5 items-center"
+      >
+        <div
+          class="text-xs bg-[#dedede] w-fit p-[2px] px-4 rounded-2xl text-[#424040]"
+        >
+          all your random_videos that are out there:
+        </div>
+        <div
+          class="loader"
+        >
+          loading...
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

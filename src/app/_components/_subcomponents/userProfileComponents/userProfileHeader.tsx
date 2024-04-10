@@ -1,4 +1,3 @@
-import firebase from 'firebase/compat/app'
 import { auth } from '@component/firebase/firebase'
 import { signOut } from 'firebase/auth'
 import { useRouter } from 'next/navigation'

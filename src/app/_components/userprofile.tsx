@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { VideoPlayer } from './videoPlayer'
 import Uploadvideo from './_subcomponents/userProfileComponents/uploadvideo'
-import { VideoColumn } from './videosColumn'
 import { useFireBaseAuth } from '../../lib/_providers/FireBaseAuthProvider'
 import UserProfileHeader from './_subcomponents/userProfileComponents/userProfileHeader'
 import { useRouter } from 'next/router'
