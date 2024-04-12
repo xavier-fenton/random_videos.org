@@ -26,10 +26,7 @@ const HomePage = () => {
         <>
           {!loader && userVideos.length ? (
             <>
-              <div className="flex flex-col w-full md:flex-row">
                 <VideoColumn usersVideoCollection={userVideos} />
-                <VideoPlayer />
-              </div>
             </>
           ) : (
             <NotUser />
