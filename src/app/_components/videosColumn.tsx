@@ -39,7 +39,6 @@ export const VideoColumn: React.FC<Props> = ({
   return (
     <>
       {visibility ? (
-      
           <NewVideoPlayer source={source} visibility={setVisibility} />
       ) : null}
       <div className="grid grid-cols-4 gap-4">

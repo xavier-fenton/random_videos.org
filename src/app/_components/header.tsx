@@ -33,7 +33,6 @@ export default function Header(){
             </div>
           )}
         </div>
-        <div className="bg-[#fff] w-fit px-4">Sign out</div>
       </div>
     </div>
   )

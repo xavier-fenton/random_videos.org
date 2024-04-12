@@ -74,6 +74,7 @@ const Uploadvideo = () => {
   return (
     <div className="h-[100dvh] w-full p-4 border border-x-0">
       <div className="w-fit flex flex-col gap-4">
+        <div>developer_note: I have to create an uploading loader to wait for an upload</div>
         <div>{user?.email}</div>
         <label>Upload a video: </label>
         <input

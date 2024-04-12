@@ -8,11 +8,16 @@ import {
   StorageReference,
 } from 'firebase/storage'
 import React, { useEffect, useState } from 'react'
+import NewVideoPlayer from '../../newVideoPlayer'
 
 const UserVideoColumn = () => {
   const { user } = useFireBaseAuth()
   const [rootPath, setRootPath] = useState<string | undefined>(undefined)
   const [sourceUrls, setSourceUrls] = useState<StorageReference[] | any>()
+  const [videoPlayerSource, setVideoPlayerSource] = useState<string>()
+
+  const [visibility, setVisibility] = useState<boolean>(false)
+
 
   const params = useParams<{ username: string }>()
 
@@ -48,17 +53,26 @@ const UserVideoColumn = () => {
     }
   }
 
+  const handleVisibility = (e: any) => {
+    setVisibility(true)
+    setVideoPlayerSource(e.target.src)
+  }
   return (
     <>
       {user?.email === params?.username ? (
-        <div className="flex flex-col gap-5 border border-x-0 w-full h-[100dvh] p-5 items-center">
+        <div className="flex flex-col gap-5 border border-x-0 w-full h-[100dvh] pt-5 items-center">
           <div className="text-xs bg-[#dedede] w-fit p-[2px] px-4 rounded-2xl text-[#424040]">
             all your random_videos that are out there:
           </div>
           {sourceUrls ? (
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {sourceUrls.map((urls: string, index: number) => {
-                return <video key={index} src={urls} />
+                return (
+                  <>
+                    <video className="hover:cursor-pointer" onClick={handleVisibility} key={index} src={urls} />
+                    {visibility ? <NewVideoPlayer source={videoPlayerSource} visibility={setVisibility} /> : null}
+                  </>
+                )
               })}
             </div>
           ) : (

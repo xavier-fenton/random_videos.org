@@ -1,3 +1,5 @@
+//this will become the new video player
+
 import React, { useState } from 'react'
 
 const NewVideoPlayer = ({ source, visibility }: any) => {
@@ -24,11 +26,11 @@ const NewVideoPlayer = ({ source, visibility }: any) => {
 
   return (
     <div
-      className={`absolute z-10 drop-shadow-2xl top-0 h-[100dvh] ${
+      className={`transition-all absolute z-10 drop-shadow-2xl top-0 h-[100dvh] ${
         adjusted ? adjustmentSize : 'px-20'
-      } transition ease-in-out duration-300  `}
+      }`}
     >
-      <div className="bg-gray-200 rounded-lg gap-2 py-2 h-[100%]">
+      <div className="transition-all bg-gray-200 rounded-lg gap-2 py-2 h-[100%]">
         <div className="flex justify-end gap-2 p-2">
           <button
             className={`${adjustmentButtonColour} ${adjustmentTextColour} rounded-full text-xs px-2 `}
